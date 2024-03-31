@@ -73,8 +73,8 @@ class Moody(Resource):
 
       
 
-        playlist = json.loads(completion.choices[0].message.content)
-        return playlist
+        # playlist = json.loads(completion.choices[0].message.content)
+        return jsonify(completion)
 
 
 
