@@ -40,9 +40,17 @@ class Moody(Resource):
         return call_playlist_prompt()
 
 
+class PostExample(Resource):
+    def post(self):
+        data = request.get_json()  # Get JSON data from the request
+        return jsonify(data)  # Echo back the received JSON data
+
+
+
 api.add_resource(status, '/')
 api.add_resource(Sum, '/add/<int:a>,<int:b>')
 api.add_resource(Moody, '/moodymusic')
+api.add_resource(PostExample, '/post-example')
 
 if __name__ == '__main__':
     app.run()
