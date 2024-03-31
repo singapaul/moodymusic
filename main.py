@@ -64,7 +64,7 @@ class Moody(Resource):
         {"role": "user", "content" : f"Generate a list of {count} songs based on this prompt: {prompt}"}, 
         ]
 
-
+        return jsonify(messages)
         completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages,
