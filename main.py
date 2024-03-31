@@ -27,11 +27,11 @@ class Sum(Resource):
     def get(self, a, b):
         return jsonify({'data': a+b})
     def post(self):
-        data = request.get_json()
+        data = request.json()
         if 'a' in data and 'b' in data:
             a = data['a']
             b = data['b']
-            return jsonify({'data': a + b})
+            return jsonify({'data': data})
         else:
             return jsonify({'error': 'Invalid input'}), 400
   
@@ -42,6 +42,7 @@ class Moody(Resource):
 
 api.add_resource(status, '/')
 api.add_resource(Sum, '/add/<int:a>,<int:b>')
+api.add_resource(Sum, '/add')
 api.add_resource(Moody, '/moodymusic')
 
 if __name__ == '__main__':
