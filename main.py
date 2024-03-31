@@ -42,7 +42,6 @@ class Moody(Resource):
 
 api.add_resource(status, '/')
 api.add_resource(Sum, '/add/<int:a>,<int:b>')
-api.add_resource(Sum, '/add')
 api.add_resource(Moody, '/moodymusic')
 
 if __name__ == '__main__':
