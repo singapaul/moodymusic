@@ -1,6 +1,7 @@
 from flask import request
 from dotenv import dotenv_values
 import openai
+from flask import jsonify, request
 import json
 import os #provides ways to access the Operating System and allows us to read the environment variables
 
@@ -47,4 +48,4 @@ def call_playlist_prompt():
     )
 
     playlist = json.loads(completion.choices[0].message.content)
-    return playlist
+    return jsonify(playlist)
